@@ -1,0 +1,9 @@
+{
+	"workbench.iconTheme": "vscode-icons",
+	"editor.tabSize": 2,
+	"editor.insertSpaces": false,
+	"editor.fontSize": 14,
+	"window.zoomLevel": 0,
+	"eslint.autoFixOnSave": true,
+	"files.autoSave": "off"
+}
