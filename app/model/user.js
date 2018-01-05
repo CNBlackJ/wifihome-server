@@ -3,13 +3,13 @@ const timestamps = require('mongoose-timestamp');
 
 module.exports = app => {
   const mongoose = app.mongoose;
-  const WifiSchema = new mongoose.Schema({
+  const UserSchema = new mongoose.Schema({
     name: String,
-    password: String,
+    role: String, // admin|user
     isDeleted: { type: Boolean, default: false },
   });
 
-  WifiSchema.plugin(timestamps);
+  UserSchema.plugin(timestamps);
 
-  return mongoose.model('Wifi', WifiSchema);
+  return mongoose.model('User', UserSchema);
 };
