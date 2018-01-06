@@ -23,6 +23,9 @@ class UserController extends Controller {
     ctx.validator({
       body: Joi.object().keys({
         name: Joi.string().required(),
+        sex: Joi.number().required(),
+        avatar: Joi.string().allow(''),
+        city: Joi.string().allow(''),
         role: Joi.string().required(),
       }),
     });
@@ -50,6 +53,9 @@ class UserController extends Controller {
       }),
       body: Joi.object().keys({
         name: Joi.string().required(),
+        sex: Joi.number().required(),
+        avatar: Joi.string(),
+        city: Joi.string(),
         role: Joi.string().required(),
       }),
     });
