@@ -20,8 +20,8 @@ class WifiService extends Service {
     return res;
   }
 
-  async findByWifiId(wifiId) {
-    const res = await this.ctx.model.Wifi.findOne({ wifiId, isDeleted: false });
+  async findByBSSID(BSSID) {
+    const res = await this.ctx.model.Wifi.findOne({ BSSID, isDeleted: false });
     return res;
   }
 

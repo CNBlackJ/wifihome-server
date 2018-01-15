@@ -8,4 +8,6 @@ module.exports = app => {
 
   router.resources('wifi', '/api/wifis', controller.wifi);
   router.resources('user', '/api/users', controller.user);
+
+  router.get('/api/wifis/bssid/:bssid', controller.wifi.findByBSSID);
 };

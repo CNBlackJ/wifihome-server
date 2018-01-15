@@ -42,6 +42,18 @@ class WifiController extends Controller {
     ctx.apiSuccess(res, 200);
   }
 
+  async findByBSSID() {
+    const { ctx, service } = this;
+    const { bssid } = ctx.params;
+    ctx.validator({
+      params: Joi.object().keys({
+        bssid: Joi.string(),
+      }),
+    });
+    const res = await service.wifi.findByBSSID(bssid);
+    ctx.apiSuccess(res, 200);
+  }
+
   async update() {
     const { ctx, service } = this;
     ctx.validator({
