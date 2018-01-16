@@ -4,7 +4,10 @@ const timestamps = require('mongoose-timestamp');
 module.exports = app => {
   const mongoose = app.mongoose;
   const UserSchema = new mongoose.Schema({
-    openId: String,
+    openId: {
+      type: String,
+      unique: true,
+    },
     name: String,
     sex: Number,
     avatar: String,

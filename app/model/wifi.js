@@ -9,7 +9,7 @@ module.exports = app => {
     SSID: String, // wifi的名字
     BSSID: {
       type: String,
-      // unique: true,
+      unique: true,
     },
     secure: Boolean,
     signalStrength: Number,
