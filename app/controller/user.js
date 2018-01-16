@@ -22,6 +22,7 @@ class UserController extends Controller {
     const payload = ctx.request.body;
     ctx.validator({
       body: Joi.object().keys({
+        code: Joi.string().required(),
         name: Joi.string().required(),
         sex: Joi.number().required(),
         avatar: Joi.string().allow(''),
@@ -29,7 +30,16 @@ class UserController extends Controller {
         role: Joi.string().required(),
       }),
     });
-    const res = await service.user.create(payload);
+    let user;
+    const openId = await service.user.getOpenId(payload.code);
+    if (openId) user = await service.user.findByOpenId(openId);
+    let res;
+    if (user) {
+      res = await service.user.update(user._id, payload);
+    } else {
+      payload.openId = openId;
+      res = await service.user.create(payload);
+    }
     ctx.apiSuccess(res, 201);
   }
 

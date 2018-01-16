@@ -34,6 +34,20 @@ class UserService extends Service {
     const res = await this.ctx.model.User.findOneAndUpdate({ _id, isDeleted: false }, { $set: { isDeleted: true } }, { new: true });
     return `${res ? 'Success' : 'Fail'} to deleted.`;
   }
+
+  async findByOpenId(openId) {
+    const res = await this.ctx.model.User.findOne({ openId, isDeleted: false });
+    return res;
+  }
+
+  async getOpenId(code) {
+    const appId = 'wxfba9aecca51d619c';
+    const secret = '9cb6c8325378cd0ab0f285d299724a87';
+    const grantType = 'authorization_code';
+    const url = `https://api.weixin.qq.com/sns/jscode2session?appid=${appId}&secret=${secret}&js_code=${code}&grant_type=${grantType}`;
+    const res = await this.ctx.curl(url, { method: 'GET', dataType: 'json' });
+    return res ? res.data.openid : '';
+  }
 }
 
 module.exports = UserService;

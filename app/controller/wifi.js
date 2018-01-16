@@ -22,8 +22,12 @@ class WifiController extends Controller {
     const payload = ctx.request.body;
     ctx.validator({
       body: Joi.object().keys({
-        name: Joi.string().required(),
-        password: Joi.string().required(),
+        originPwd: Joi.string().required(),
+        easyPwd: Joi.string().required(),
+        SSID: Joi.string().required(),
+        BSSID: Joi.string().required(),
+        secure: Joi.boolean().required(),
+        signalStrength: Joi.number().required(),
       }),
     });
     const res = await service.wifi.create(payload);
@@ -61,8 +65,12 @@ class WifiController extends Controller {
         id: Joi.string(),
       }),
       body: Joi.object().keys({
-        name: Joi.string().required(),
-        password: Joi.string().required(),
+        originPwd: Joi.string().required(),
+        easyPwd: Joi.string().required(),
+        SSID: Joi.string().required(),
+        BSSID: Joi.string().required(),
+        secure: Joi.boolean().required(),
+        signalStrength: Joi.number().required(),
       }),
     });
     const { id } = ctx.params;
