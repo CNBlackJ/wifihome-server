@@ -7,7 +7,7 @@
     "egg": "^2.0.0",
     "egg-joi-validate": "^1.0.0",
     "egg-mongoose": "^2.1.1",
-    "egg-scripts": "^2.1.0",
+    "egg-scripts": "^2.5.0",
     "mongoose-timestamp": "^0.6.0"
   },
   "devDependencies": {
@@ -24,7 +24,7 @@
     "node": ">=8.9.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon",
+    "start": "egg-scripts start --daemon --title=api-wifihome",
     "stop": "egg-scripts stop",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
