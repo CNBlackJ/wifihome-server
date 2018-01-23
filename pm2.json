@@ -16,7 +16,7 @@
       "host": ["39.108.246.148"],
       "ref": "origin/master",
       "repo": "git@github.com:CNBlackJ/wifihome-server.git",
-      "path": "/var/www/wifihome-server",
+      "path": "/var/www",
       "post-deploy": "npm install; pm2 restart pm2.json"
     }
   }
