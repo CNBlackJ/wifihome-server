@@ -9,6 +9,7 @@
     "egg-mongoose": "^2.1.1",
     "egg-scripts": "^2.5.0",
     "mongoose-timestamp": "^0.6.0",
+    "newrelic": "^2.6.1",
     "pandora": "^1.6.23"
   },
   "devDependencies": {
