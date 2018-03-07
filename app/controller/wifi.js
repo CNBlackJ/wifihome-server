@@ -6,7 +6,7 @@ const Joi = require('joi');
 class WifiController extends Controller {
   async index() {
     const { ctx, service } = this;
-    ctx.validator({
+    ctx.joi({
       query: Joi.object().keys({
         limit: Joi.number().min(0),
         skip: Joi.number().min(0),
@@ -20,7 +20,7 @@ class WifiController extends Controller {
   async create() {
     const { ctx, service } = this;
     const payload = ctx.request.body;
-    ctx.validator({
+    ctx.joi({
       body: Joi.object().keys({
         originPwd: Joi.string().required(),
         easyPwd: Joi.string().required(),
@@ -37,7 +37,7 @@ class WifiController extends Controller {
   async show() {
     const { ctx, service } = this;
     const { id } = ctx.params;
-    ctx.validator({
+    ctx.joi({
       params: Joi.object().keys({
         id: Joi.string(),
       }),
@@ -49,7 +49,7 @@ class WifiController extends Controller {
   async findByBSSID() {
     const { ctx, service } = this;
     const { bssid } = ctx.params;
-    ctx.validator({
+    ctx.joi({
       params: Joi.object().keys({
         bssid: Joi.string(),
       }),
@@ -60,7 +60,7 @@ class WifiController extends Controller {
 
   async update() {
     const { ctx, service } = this;
-    ctx.validator({
+    ctx.joi({
       params: Joi.object().keys({
         id: Joi.string(),
       }),

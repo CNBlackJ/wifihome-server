@@ -6,7 +6,7 @@ const Joi = require('joi');
 class UserController extends Controller {
   async index() {
     const { ctx, service } = this;
-    ctx.validator({
+    ctx.joi({
       query: Joi.object().keys({
         limit: Joi.number().min(0),
         skip: Joi.number().min(0),
@@ -20,7 +20,7 @@ class UserController extends Controller {
   async create() {
     const { ctx, service } = this;
     const payload = ctx.request.body;
-    ctx.validator({
+    ctx.joi({
       body: Joi.object().keys({
         code: Joi.string().required(),
         name: Joi.string().required(),
@@ -46,7 +46,7 @@ class UserController extends Controller {
   async show() {
     const { ctx, service } = this;
     const { id } = ctx.params;
-    ctx.validator({
+    ctx.joi({
       params: Joi.object().keys({
         id: Joi.string(),
       }),
@@ -57,7 +57,7 @@ class UserController extends Controller {
 
   async update() {
     const { ctx, service } = this;
-    ctx.validator({
+    ctx.joi({
       params: Joi.object().keys({
         id: Joi.string(),
       }),

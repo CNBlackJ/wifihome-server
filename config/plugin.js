@@ -8,7 +8,7 @@ exports.mongoose = {
   package: 'egg-mongoose',
 };
 
-exports.validator = {
+exports.joi = {
   enable: true,
   package: 'egg-joi-validate',
 };
